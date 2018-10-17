@@ -19,7 +19,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         self.textLabel.text = self.CurrentPhoto?.info
     }
-    @IBAction func Ok_btnClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Ok_btnClicked(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

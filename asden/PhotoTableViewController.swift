@@ -56,27 +56,21 @@ class PhotoTableViewController: UITableViewController {
         newPhoto = Photo(name:"Photo20",image:"20",info:"the is Good Photo 20")
         self.cellData.append(newPhoto)
     }
-
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let nextScene = segue.destinationViewController as! DisplayViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! DisplayViewController
         if let indexPath = self.tableView.indexPathForSelectedRow {
             nextScene.CurrentPhoto = self.cellData[indexPath.row]
         }
     }
+    
 
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cellData.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel!.text = self.cellData[indexPath.row].name
         return cell
     }

@@ -19,18 +19,10 @@ class DisplayViewController: UIViewController {
         self.title = self.CurrentPhoto?.name
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let nextScene = segue.destinationViewController as! InfoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! InfoViewController
         nextScene.CurrentPhoto = self.CurrentPhoto
-    
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-
 
 }
 
